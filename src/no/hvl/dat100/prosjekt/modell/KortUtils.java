@@ -21,15 +21,15 @@ public class KortUtils {
 		// TODO - START
 		Kort[] temp = samling.getSamling();
 		
-		for (int i = 0; i < temp.length-1; i++) {
-		int a = Kort.compareTo(temp[i]);
-		
-		if (a<0) {
-			Kort t= temp[i];
-			temp[i]=temp[i+1];
-			temp[i] = t;
-			i=0;
-		}
+		for (int i = 0; i < samling.getAntalKort() -1; i++) {
+			int a = temp[i].compareTo(temp[i+1]);
+			
+			if (a>0) {
+				Kort t= temp[i];
+				temp[i]=temp[i+1];
+				temp[i+1] = t;
+				i=0;
+			}
 		
 		}
 		
@@ -47,8 +47,54 @@ public class KortUtils {
 		
 		// TODO - START
 		
-		throw new UnsupportedOperationException(TODO.method());
-		// TODO - END
-	}
-	
+	        
+	        Kort[] kort = samling.getAllekort();
+	        
+	        int runde = 0;
+	        int antallRunder = 5;
+	        while (++runde < antallRunder) {
+	            for (int i = 0; i < samling.getAntalKort() - 1; i++) {
+	                boolean skalBytte = false;
+	                
+	                double rand = Math.random();
+	                
+	                if (rand < 0.5) {
+	                    skalBytte = true;
+	                }
+	                
+	                if (skalBytte) {
+	                    Kort tmp = kort[i];
+	                    
+	                    kort[i] = kort[i + 1];
+	                    kort[i + 1] = tmp;
+	                }
+	            }
+	            
+	            samling.fjernAlle();
+	            for(Kort k : kort) {
+	                samling.leggTil(k);
+	            }
+	        }
+	    }
+
+
+//        for (int i = 0; i < 100; i++) {
+//        	
+//        	Random rand = new Random();
+//        	int maks=samling.getAntalKort()-1;	// antall i samling - 1
+//        	int min=1;
+//        	int randomPlass = (rand.nextInt(maks)+min);
+//        	
+//        	Kort[] kort= samling.getSamling();
+//			
+//        	Kort temp = kort[randomPlass];
+//        	kort[randomPlass]= kort[randomPlass+1];
+//			kort[randomPlass+1] = temp;
+//        	
+//        }
+
+//		throw new UnsupportedOperationException(TODO.method());
+// TODO - END
 }
+
+

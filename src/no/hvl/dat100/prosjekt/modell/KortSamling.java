@@ -84,42 +84,13 @@ public class KortSamling {
 	 * slik at de normalt må stokkes før bruk.
 	 */
 	public void leggTilAlle() {
-
-		// TODO - START
-		// Husk: bruk Regler.MAKS_KORT_FARGE for å få antall kort per farge
-		Kort kort = new Kort(Kortfarge.Spar,1);
-		leggTil(kort);
-		leggTil(new Kort(Kortfarge.Hjerter,1));
-		antall = 12;
 		
-//		for (Kortfarge f : Kortfarge.values()) {
-//			for (int i = 1; i <= Regler.MAKS_KORT_FARGE; i++) {
-//				leggTil(new Kort(f, i));
-//				
-//			}
-//		}
-
-//		for (int i = 0; i < Regler.MAKS_KORT_FARGE; i++) {
-//			samling [antall] = new Kort(Kortfarge.Hjerter ,i+1);
-//			antall++;
-//		}
-//		
-//		for (int i = 0; i < Regler.MAKS_KORT_FARGE; i++) {
-//			samling[antall] = new Kort(Kortfarge.Klover ,i+1);
-//			antall++;
-//		}
-//		
-//		for (int i = 0; i < Regler.MAKS_KORT_FARGE; i++) {
-//			samling[antall] = new Kort(Kortfarge.Ruter ,i+1);
-//			antall++;
-//		}
-//		
-//		for (int i = 0; i < Regler.MAKS_KORT_FARGE; i++) {
-//			samling[antall] = new Kort(Kortfarge.Spar ,i+1);
-//			antall++;
-//		}
-//		
-		// TODO - END
+		for (Kortfarge f : Kortfarge.values()) {
+			for (int i = 1; i <= Regler.MAKS_KORT_FARGE; i++) {
+				leggTil(new Kort(f, i));
+				
+			}
+		}
 	}
 
 	/**
@@ -176,10 +147,12 @@ public class KortSamling {
 	 * @return true om kortet finst i samlinga, false ellers.
 	 */
 	public boolean har(Kort kort) {
-
+		if (kort == null) {
+			return false;
+		}
 		for (int i = 0; i < antall; i++) {
 
-			if (kort == samling[i]) {
+			if (kort.equals(samling[i])) {
 				return true;
 
 			}
@@ -204,7 +177,7 @@ public class KortSamling {
 			return false;
 
 		for (int i = 0; i < antall; i++) {
-			if (kort == samling[i]) {
+			if (kort.equals(samling[i])){
 				samling[i] = samling[antall - 1];
 				samling[antall - 1] = null;
 			}
