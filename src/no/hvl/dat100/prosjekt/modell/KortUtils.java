@@ -12,73 +12,67 @@ public class KortUtils {
 	 * 
 	 * @see Kort
 	 * 
-	 * @param samling
-	 * 			samling av kort som skal sorteres. 
+	 * @param samling samling av kort som skal sorteres.
 	 */
-	
+
 	public static void sorter(KortSamling samling) {
-		
+
 		// TODO - START
 		Kort[] temp = samling.getSamling();
-		
-		for (int i = 0; i < samling.getAntalKort() -1; i++) {
-			int a = temp[i].compareTo(temp[i+1]);
-			
-			if (a>0) {
-				Kort t= temp[i];
-				temp[i]=temp[i+1];
-				temp[i+1] = t;
-				i=0;
+
+		for (int i = 0; i < samling.getAntalKort() - 1; i++) {
+			int a = temp[i].compareTo(temp[i + 1]);
+
+			if (a > 0) {
+				Kort t = temp[i];
+				temp[i] = temp[i + 1];
+				temp[i + 1] = t;
+				i = 0;
 			}
-		
+
 		}
-		
+
 //		throw new UnsupportedOperationException(TODO.method());
 		// TODO - END
 	}
-	
+
 	/**
-	 * Stokkar en kortsamling. 
+	 * Stokkar en kortsamling.
 	 * 
-	 * @param samling
-	 * 			samling av kort som skal stokkes. 
+	 * @param samling samling av kort som skal stokkes.
 	 */
 	public static void stokk(KortSamling samling) {
-		
+
 		// TODO - START
-		
-	        
-	        Kort[] kort = samling.getAllekort();
-	        
-	        int runde = 0;
-	        int antallRunder = 5;
-	        while (++runde < antallRunder) {
-	            for (int i = 0; i < samling.getAntalKort() - 1; i++) {
-	                boolean skalBytte = false;
-	                
-	                double rand = Math.random();
-	                
-	                if (rand < 0.5) {
-	                    skalBytte = true;
-	                }
-	                
-	                if (skalBytte) {
-	                    Kort tmp = kort[i];
-	                    
-	                    kort[i] = kort[i + 1];
-	                    kort[i + 1] = tmp;
-	                }
-	            }
-	            
-	            samling.fjernAlle();
-	            for(Kort k : kort) {
-	                samling.leggTil(k);
-	            }
-	        }
-	    }
 
+		Kort[] kort = samling.getAllekort();
 
-//        for (int i = 0; i < 100; i++) {
+		int runde = 0;
+		int antallRunder = 5;
+		while (++runde < antallRunder) {
+			for (int i = 0; i < samling.getAntalKort() - 1; i++) {
+				boolean skalBytte = false;
+
+				double rand = Math.random();
+
+				if (rand < 0.5) {
+					skalBytte = true;
+				}
+
+				if (skalBytte) {
+					Kort tmp = kort[i];
+
+					kort[i] = kort[i + 1];
+					kort[i + 1] = tmp;
+				}
+			}
+
+			samling.fjernAlle();
+			for (Kort k : kort) {
+				samling.leggTil(k);
+			}
+		}
+		// for (int i = 0; i < 100; i++) {
 //        	
 //        	Random rand = new Random();
 //        	int maks=samling.getAntalKort()-1;	// antall i samling - 1
@@ -94,7 +88,16 @@ public class KortUtils {
 //        }
 
 //		throw new UnsupportedOperationException(TODO.method());
-// TODO - END
+// TODO - END 
+	}
+
+	public static void flytt(KortSamling samlingFra, KortSamling samlingTil) {
+
+		while (0 < samlingFra.getAntalKort()) {
+
+			samlingTil.leggTil(samlingFra.taSiste());
+
+		}
+	}
+
 }
-
-

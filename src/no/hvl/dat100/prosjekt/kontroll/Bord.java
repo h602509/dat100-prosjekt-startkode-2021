@@ -114,9 +114,9 @@ public class Bord {
 
 	public Kort taOversteFraBunke() {
 
-		Kort temp = bunkeFra.seSiste();
-		bunkeFra.taSiste();
-		return temp;
+//		Kort temp = bunkeFra.seSiste();
+		return bunkeFra.taSiste();
+//		return temp;
 
 	}
 
@@ -141,13 +141,8 @@ public class Bord {
 	public void snuTilBunken() {
 
 		Kort temp = bunkeTil.taSiste();
-		
-		while (0 < bunkeTil.getAntalKort()) {
-			
-			bunkeFra.leggTil(bunkeTil.taSiste());
-			
-		}
-		
+
+		KortUtils.flytt(bunkeTil, bunkeFra);
 		KortUtils.stokk(bunkeFra);
 		bunkeTil.leggTil(temp);
 

@@ -50,9 +50,12 @@ public abstract class Spiller implements ISpiller {
 	public Spiller(Spillere spiller) {
 		
 		// TODO - START
-
-		throw new UnsupportedOperationException(TODO.constructor("Spiller"));
+	
+		this();
+		this.spiller = spiller;
+		
 		// TODO - END
+		
 	}
 
 	public int getAntallKort() {
