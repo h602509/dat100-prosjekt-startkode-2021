@@ -155,7 +155,7 @@ public class Spill {
 
 		// TODO - START
 
-		throw new UnsupportedOperationException(TODO.method());
+		return spiller.nesteHandling(bord.seOversteBunkeTil());
 
 		// TODO - END
 
@@ -175,14 +175,24 @@ public class Spill {
 
 		// TODO - START
 
-		if (spiller.getHand().har(kort)) {
+//		if (spiller.getHand().har(kort)) {
+//			getBord().getBunkeTil().leggTil(kort);
+//			spiller.fjernKort(kort);
+//			spiller.setAntallTrekk(0);
+//			return true;
+//		}
+//		return false;
+
+		boolean harKort = spiller.getHand().har(kort);
+		
+		if(harKort) {
 			getBord().getBunkeTil().leggTil(kort);
 			spiller.fjernKort(kort);
-			spiller.setAntallTrekk(0);
-			return true;
 		}
-		return false;
-
+		
+		return harKort;
+	
+		
 		// TODO - END
 	}
 

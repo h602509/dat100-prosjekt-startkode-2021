@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Random;
 
 import no.hvl.dat100.prosjekt.TODO;
+import no.hvl.dat100.prosjekt.kontroll.Spill;
 
 public class KortUtils {
 
@@ -45,47 +46,60 @@ public class KortUtils {
 
 		// TODO - START
 
-		Kort[] kort = samling.getAllekort();
+//		Kort[] kort = samling.getAllekort();
+//
+//		int runde = 0;
+//		int antallRunder = 5;
+//		while (++runde < antallRunder) {
+//			for (int i = 0; i < samling.getAntalKort() - 1; i++) {
+//				boolean skalBytte = false;
+//
+//				double rand = Math.random();
+//
+//				if (rand < 0.5) {
+//					skalBytte = true;
+//				}
+//
+//				if (skalBytte) {
+//					Kort tmp = kort[i];
+//
+//					kort[i] = kort[i + 1];
+//					kort[i + 1] = tmp;
+//				}
+//			}
+//
+//			samling.fjernAlle();
+//			for (Kort k : kort) {
+//				samling.leggTil(k);
+//			}
+//		}
+		for (int i = 0; i < 10; i++) {
 
-		int runde = 0;
-		int antallRunder = 5;
-		while (++runde < antallRunder) {
-			for (int i = 0; i < samling.getAntalKort() - 1; i++) {
-				boolean skalBytte = false;
+//        	Random rand = new Random();
+//			int maks = samling.getAntalKort() - 1; // antall i samling - 1
+//			int min = 1;
+//			double random = Math.random() * (maks - min) + min;
+//			int randomPlass = (int) random;
+//        	double random2 = Math.random() * (maks - min) + min;
+//        	int randomPlass2 = (int)random2;
 
-				double rand = Math.random();
+//        	int randomPlass = (rand.nextInt(maks)+min);
 
-				if (rand < 0.5) {
-					skalBytte = true;
+			for (int j = 0; j < samling.getAntalKort(); j++) {
+				
+				int maks = samling.getAntalKort() - 1; // antall i samling - 1
+				int min = 1;
+				double random = Math.random() * (maks - min) + min;
+				int randomPlass = (int) random;
+				
+				Kort[] kort = samling.getSamling();
+				if (j != randomPlass) {
+					Kort temp = kort[j];
+					kort[j] = kort[randomPlass];
+					kort[randomPlass] = temp;
 				}
-
-				if (skalBytte) {
-					Kort tmp = kort[i];
-
-					kort[i] = kort[i + 1];
-					kort[i + 1] = tmp;
-				}
-			}
-
-			samling.fjernAlle();
-			for (Kort k : kort) {
-				samling.leggTil(k);
 			}
 		}
-		// for (int i = 0; i < 100; i++) {
-//        	
-//        	Random rand = new Random();
-//        	int maks=samling.getAntalKort()-1;	// antall i samling - 1
-//        	int min=1;
-//        	int randomPlass = (rand.nextInt(maks)+min);
-//        	
-//        	Kort[] kort= samling.getSamling();
-//			
-//        	Kort temp = kort[randomPlass];
-//        	kort[randomPlass]= kort[randomPlass+1];
-//			kort[randomPlass+1] = temp;
-//        	
-//        }
 
 //		throw new UnsupportedOperationException(TODO.method());
 // TODO - END 
