@@ -75,23 +75,13 @@ public class KortUtils {
 //		}
 		for (int i = 0; i < 10; i++) {
 
-//        	Random rand = new Random();
-//			int maks = samling.getAntalKort() - 1; // antall i samling - 1
-//			int min = 1;
-//			double random = Math.random() * (maks - min) + min;
-//			int randomPlass = (int) random;
-//        	double random2 = Math.random() * (maks - min) + min;
-//        	int randomPlass2 = (int)random2;
-
-//        	int randomPlass = (rand.nextInt(maks)+min);
-
 			for (int j = 0; j < samling.getAntalKort(); j++) {
-				
+
 				int maks = samling.getAntalKort() - 1; // antall i samling - 1
 				int min = 1;
 				double random = Math.random() * (maks - min) + min;
 				int randomPlass = (int) random;
-				
+
 				Kort[] kort = samling.getSamling();
 				if (j != randomPlass) {
 					Kort temp = kort[j];
@@ -100,9 +90,6 @@ public class KortUtils {
 				}
 			}
 		}
-
-//		throw new UnsupportedOperationException(TODO.method());
-// TODO - END 
 	}
 
 	public static void flytt(KortSamling samlingFra, KortSamling samlingTil) {
