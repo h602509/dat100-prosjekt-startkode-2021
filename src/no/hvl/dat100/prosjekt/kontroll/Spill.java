@@ -138,9 +138,9 @@ public class Spill {
 		if (bord.antallBunkeFra() == 0) {
 			bord.snuTilBunken();
 		}
-
-		spiller.trekker(bord.taOversteFraBunke());
-		return bord.seOversteBunkeTil();
+		Kort t = bord.taOversteFraBunke();
+		spiller.trekker(t);
+		return t;
 		// TODO - END
 	}
 
@@ -184,15 +184,14 @@ public class Spill {
 //		return false;
 
 		boolean harKort = spiller.getHand().har(kort);
-		
-		if(harKort) {
+
+		if (harKort) {
 			getBord().getBunkeTil().leggTil(kort);
 			spiller.fjernKort(kort);
 		}
-		
+
 		return harKort;
-	
-		
+
 		// TODO - END
 	}
 
@@ -246,8 +245,6 @@ public class Spill {
 		// Hint: del opp i de tre mulige handlinger og vurder
 		// om noen andre private metoder i klassen kan brukes
 		// til å implementere denne metoden
-
-
 
 		// TODO - END
 	}
