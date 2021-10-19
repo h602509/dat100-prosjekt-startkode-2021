@@ -29,13 +29,9 @@ public class Spill {
 
 	public Spill() {
 
-		// TODO - START
-
 		nord = new NordSpiller(Spillere.NORD);
 		syd = new SydSpiller(Spillere.SYD);
 		bord = new Bord();
-
-		// TODO - END
 
 	}
 
@@ -46,11 +42,7 @@ public class Spill {
 	 */
 	public Bord getBord() {
 
-		// TODO - START
-
 		return bord;
-
-		// TODO - END
 
 	}
 
@@ -61,11 +53,7 @@ public class Spill {
 	 */
 	public ISpiller getSyd() {
 
-		// TODO - START
-
 		return syd;
-
-		// TODO - END
 
 	}
 
@@ -76,11 +64,8 @@ public class Spill {
 	 */
 	public ISpiller getNord() {
 
-		// TODO - START
-
 		return nord;
-
-		// TODO - END
+	
 	}
 
 	/**
@@ -94,19 +79,12 @@ public class Spill {
 	 */
 	public void start() {
 
-		// TODO - START
-
 		KortUtils.stokk(bord.getBunkeFra());
 
 		delutKort();
 
-//		while (syd.getAntallKort()<ANTALL_KORT_START) {
-//		nord.leggTilKort(bord.taOversteFraBunke());
-//		syd.leggTilKort(bord.taOversteFraBunke());
-//		}
 		bord.vendOversteFraBunke();
 
-		// TODO - END
 	}
 
 	/**
@@ -115,12 +93,10 @@ public class Spill {
 	 */
 	private void delutKort() {
 
-		// TODO - START
 		while (syd.getAntallKort() < ANTALL_KORT_START) {
 			nord.leggTilKort(bord.taOversteFraBunke());
 			syd.leggTilKort(bord.taOversteFraBunke());
 		}
-		// TODO - END
 	}
 
 	/**
@@ -134,14 +110,14 @@ public class Spill {
 	 */
 	public Kort trekkFraBunke(ISpiller spiller) {
 
-		// TODO - START
 		if (bord.antallBunkeFra() == 0) {
 			bord.snuTilBunken();
 		}
+		
 		Kort t = bord.taOversteFraBunke();
 		spiller.trekker(t);
 		return t;
-		// TODO - END
+
 	}
 
 	/**
@@ -153,11 +129,7 @@ public class Spill {
 	 */
 	public Handling nesteHandling(ISpiller spiller) {
 
-		// TODO - START
-
 		return spiller.nesteHandling(bord.seOversteBunkeTil());
-
-		// TODO - END
 
 	}
 
@@ -173,16 +145,6 @@ public class Spill {
 	 */
 	public boolean leggnedKort(ISpiller spiller, Kort kort) {
 
-		// TODO - START
-
-//		if (spiller.getHand().har(kort)) {
-//			getBord().getBunkeTil().leggTil(kort);
-//			spiller.fjernKort(kort);
-//			spiller.setAntallTrekk(0);
-//			return true;
-//		}
-//		return false;
-
 		boolean harKort = spiller.getHand().har(kort);
 
 		if (harKort) {
@@ -192,7 +154,6 @@ public class Spill {
 
 		return harKort;
 
-		// TODO - END
 	}
 
 	/**
@@ -203,11 +164,8 @@ public class Spill {
 	 */
 	public void forbiSpiller(ISpiller spiller) {
 
-		// TODO - START
-
 		spiller.setAntallTrekk(0);
 
-		// TODO - END
 	}
 
 	/**
@@ -221,7 +179,6 @@ public class Spill {
 	 */
 	public Kort utforHandling(ISpiller spiller, Handling handling) {
 
-		// TODO - START
 		Kort kort = null;
 
 		switch (handling.getType()) {
@@ -246,7 +203,6 @@ public class Spill {
 		// om noen andre private metoder i klassen kan brukes
 		// til å implementere denne metoden
 
-		// TODO - END
 	}
 
 }

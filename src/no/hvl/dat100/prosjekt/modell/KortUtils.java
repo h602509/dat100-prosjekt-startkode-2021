@@ -18,7 +18,6 @@ public class KortUtils {
 
 	public static void sorter(KortSamling samling) {
 
-		// TODO - START
 		Kort[] temp = samling.getSamling();
 
 		for (int i = 0; i < samling.getAntalKort() - 1; i++) {
@@ -30,11 +29,7 @@ public class KortUtils {
 				temp[i + 1] = t;
 				i = 0;
 			}
-
 		}
-
-//		throw new UnsupportedOperationException(TODO.method());
-		// TODO - END
 	}
 
 	/**
@@ -44,35 +39,6 @@ public class KortUtils {
 	 */
 	public static void stokk(KortSamling samling) {
 
-		// TODO - START
-
-//		Kort[] kort = samling.getAllekort();
-//
-//		int runde = 0;
-//		int antallRunder = 5;
-//		while (++runde < antallRunder) {
-//			for (int i = 0; i < samling.getAntalKort() - 1; i++) {
-//				boolean skalBytte = false;
-//
-//				double rand = Math.random();
-//
-//				if (rand < 0.5) {
-//					skalBytte = true;
-//				}
-//
-//				if (skalBytte) {
-//					Kort tmp = kort[i];
-//
-//					kort[i] = kort[i + 1];
-//					kort[i + 1] = tmp;
-//				}
-//			}
-//
-//			samling.fjernAlle();
-//			for (Kort k : kort) {
-//				samling.leggTil(k);
-//			}
-//		}
 		for (int i = 0; i < 10; i++) {
 
 			for (int j = 0; j < samling.getAntalKort(); j++) {
