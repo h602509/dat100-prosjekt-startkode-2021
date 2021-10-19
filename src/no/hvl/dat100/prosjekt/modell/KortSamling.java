@@ -22,12 +22,9 @@ public class KortSamling {
 	 */
 	public KortSamling() {
 
-		// TODO - START
-
 		samling = new Kort[MAKS_KORT];
 		antall = 0;
 
-		// TODO - END
 	}
 
 	/**
